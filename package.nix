@@ -23,7 +23,7 @@
 }:
 
 let
-  binaryName = "glide-browser";
+  binaryName = "glide";
 
   glidePolicies = (config.glide-browser.policies or { }) // policies;
 
@@ -106,8 +106,6 @@ stdenv.mkDerivation {
       ''
         mkdir -p $out/Applications
         mv Glide*.app "$out/Applications/${applicationName}.app"
-
-        ln -s "$out/Applications/${applicationName}.app/Contents/MacOS/glide" "$out/Applications/${applicationName}.app/Contents/MacOS/${binaryName}"
       ''
     else
       ''
@@ -149,6 +147,6 @@ stdenv.mkDerivation {
       "aarch64-darwin"
     ];
     maintainers = with lib.maintainers; [ pyrox0 ];
-    mainProgram = "glide-browser";
+    mainProgram = "glide";
   };
 }
